@@ -390,6 +390,7 @@ footer a { border-bottom: 1px solid var(--line-2); }
           <div class="btns">
             <a class="btn fill mag" href="#work">View work →</a>
             <a class="btn mag" href="#contact">Contact</a>
+            <a class="btn mag resume-dl" href="https://sundarapandian7.github.io/Sundarapandian_R_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
           </div>
         </div>
       </div>
@@ -615,6 +616,7 @@ footer a { border-bottom: 1px solid var(--line-2); }
           <div class="links">
             <div class="row"><div><small>Email</small><strong id="email">sundarapandian98@gmail.com</strong></div><button type="button" id="copyBtn">Copy</button></div>
             <div class="row"><div><small>LinkedIn</small><strong>in/sundarapandian7</strong></div><a class="go" href="https://www.linkedin.com/in/sundarapandian7/" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="row"><div><small>Resume</small><strong>Sundarapandian_R_Resume.pdf</strong></div><a class="go resume-dl" href="https://sundarapandian7.github.io/Sundarapandian_R_Resume.pdf" target="_blank" rel="noopener">Download ↓</a></div>
             <div class="row"><div><small>Local time · Chennai</small><strong id="clock">IST</strong></div></div>
           </div>
         </div>
@@ -862,6 +864,11 @@ footer a { border-bottom: 1px solid var(--line-2); }
     rail.addEventListener('pointerdown', function (e) { if (e.button !== 0) return; down = true; sx = e.clientX; sl = rail.scrollLeft; rail.classList.add('grab'); });
     addEventListener('pointerup', function () { if (down) { down = false; rail.classList.remove('grab'); } });
     rail.addEventListener('pointermove', function (e) { if (down) rail.scrollLeft = sl - (e.clientX - sx); });
+  }
+
+  /* resume links: a real download on the hosted site; elsewhere they open the PDF in a new tab */
+  if (location.hostname === 'sundarapandian7.github.io') {
+    document.querySelectorAll('.resume-dl').forEach(function (a) { a.setAttribute('download', 'Sundarapandian_R_Resume.pdf'); a.removeAttribute('target'); });
   }
 
   /* misc */
